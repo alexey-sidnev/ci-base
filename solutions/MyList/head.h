@@ -1,8 +1,8 @@
-#ifndef GTEST_DHEAP_HEAD_H
-#define GTEST_DHEAP_HEAD_H
+#ifndef  SOLUTIONS_MYLIST_HEAD_H_
+#define  SOLUTIONS_MYLIST_HEAD_H_
 
 class heap {
-public:
+ public:
   int size;
   int n;
   int *arr;
@@ -19,4 +19,4 @@ public:
   void print();
 };
 
-#endif  // GTEST_DHEAP_HEAD_H
+#endif  //  SOLUTIONS_MYLIST_HEAD_H_
