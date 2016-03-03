@@ -1,4 +1,5 @@
-
+#ifndef SOLUTIONS_HEAP_H_  
+#define SOLUTIONS_HEAP_H_  
 class Heap
 {
 public:
@@ -6,71 +7,62 @@ public:
 	int len;
 	int *mas;
 
-	void Add(int a)
-	{
-		if (len>size-1)
+  void Add(int a) {
+		if (len > size - 1)
 			throw "Heap is full";
 		len++;
-		mas[len]=a;
-		int i=len;
-		int tmp=0;
-		while (mas[i]<mas[i/2] && i>1)
-		{
-			tmp=mas[i];
-			mas[i]=mas[i/2];
-			mas[i/2]=tmp;
-			i=i/2;
+		mas[len] = a;
+		int i = len;
+		int tmp = 0;
+		while (mas[i] < mas[i/2] && i > 1) {
+			tmp = mas[i];
+			mas[i] = mas[i/2];
+			mas[i/2] = tmp;
+			i = i/2;
 		}
-
 	}
 
 
-	Heap(int *m, int n)
-	{
-		mas = new int[n+1];
-		len=0;
-		size=n;
-		for (int i=0; i<n; i++)
+	Heap(int *m, int n) {
+		mas = new int[n + 1];
+		len = 0;
+		size = n;
+		for (int i = 0; i < n; i++)
 			Add(m[i]);
 	}
 
-	void print()
-	{
-		for (int i=1; i<len+1; i++)
+	void print() {
+		for (int i = 1; i < len + 1; i++)
 			printf("%i ",mas[i]);
 	}
 
-	int Delete()
-	{
-		mas[0]=mas[1];
-		mas[1]=mas[len];
+	int Delete() {
+	  mas[0] = mas[1];
+		mas[1] = mas[len];
 		len--;
-		int i=1;
-		while (i*2<len && (mas[i]>mas[2*i] || mas[i]>mas[2*i+1]) )
-		{
-			if (mas[2*i]<mas[2*i+1])
-			{
-				int tmp=mas[2*i];
-				mas[2*i]=mas[i];
-				mas[i]=tmp;
-				i=2*i;
+		int i = 1;
+		while (i*2 < len && (mas[i] > mas[2*i] || mas[i] > mas[2*i+1]) ) {
+			if (mas[2*i] < mas[2*i+1]) {
+				int tmp = mas[2*i];
+				mas[2*i] = mas[i];
+				mas[i] = tmp;
+				i = 2*i;
 			}
-			else
-			{
-				int tmp=mas[2*i+1];
-				mas[2*i+1]=mas[i];
-				mas[i]=tmp;
-				i=2*i+1;
+			else {
+				int tmp = mas[2*i + 1];
+				mas[2*i + 1] = mas[i];
+				mas[i] = tmp;
+				i = 2*i + 1;
 			}
 		}
 		return mas[0];
 	}
-
 };
 
-void HeapSort(int *m, int n)
-{
-	Heap a(m,n);
-	for (int i=0; i<n; i++)
-		m[i]=a.Delete();
+void HeapSort(int *m, int n) {
+  Heap a(m,n);
+  for (int i = 0; i < n; i++)
+		m[i] = a.Delete();
 }
+
+#endif  //SOLUTIONS_HEAP_H_  
