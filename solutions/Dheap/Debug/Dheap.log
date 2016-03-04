@@ -1,0 +1,20 @@
+﻿Build started 04.03.2016 9:16:11.
+     1>Project "C:\tmp\d-heap\Dheap\Dheap\Dheap\Dheap.vcxproj" on node 2 (rebuild target(s)).
+     1>_PrepareForClean:
+         Deleting file "Debug\Dheap.lastbuildstate".
+       InitializeBuildStatus:
+         Touching "Debug\Dheap.unsuccessfulbuild".
+       ClCompile:
+         c:\Program Files (x86)\Microsoft Visual Studio 10.0\VC\bin\CL.exe /c /ZI /nologo /W3 /WX- /Od /Oy- /D WIN32 /D _DEBUG /D _CONSOLE /D _UNICODE /D UNICODE /Gm /EHsc /RTC1 /MDd /GS /fp:precise /Zc:wchar_t /Zc:forScope /Fo"Debug\\" /Fd"Debug\vc100.pdb" /Gd /TP /analyze- /errorReport:prompt Dheap.cpp
+         Dheap.cpp
+       Lib:
+         c:\Program Files (x86)\Microsoft Visual Studio 10.0\VC\bin\Lib.exe /OUT:"C:\tmp\d-heap\Dheap\Dheap\Debug\Dheap.lib" /NOLOGO Debug\Dheap.obj
+         Dheap.vcxproj -> C:\tmp\d-heap\Dheap\Dheap\Debug\Dheap.lib
+       FinalizeBuildStatus:
+         Deleting file "Debug\Dheap.unsuccessfulbuild".
+         Touching "Debug\Dheap.lastbuildstate".
+     1>Done Building Project "C:\tmp\d-heap\Dheap\Dheap\Dheap\Dheap.vcxproj" (rebuild target(s)).
+
+Build succeeded.
+
+Time Elapsed 00:00:00.81
