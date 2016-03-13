@@ -19,4 +19,4 @@ class heap {
   void insert(int key);
 };
 
-#endif //SOLUTIONS_DHEAP_DHEAP_DHEAP_H_
+#endif  // SOLUTIONS_DHEAP_DHEAP_DHEAP_H_
