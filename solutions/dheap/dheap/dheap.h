@@ -1,3 +1,6 @@
+#ifndef SOLUTIONS_DHEAP_DHEAP_DHEAP_H_
+#define SOLUTIONS_DHEAP_DHEAP_DHEAP_H_
+
 class heap {
  private:
   int size;
@@ -15,3 +18,5 @@ class heap {
   int deletemin();
   void insert(int key);
 };
+
+#endif //SOLUTIONS_DHEAP_DHEAP_DHEAP_H_

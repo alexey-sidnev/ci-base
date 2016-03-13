@@ -53,7 +53,7 @@ TEST(dheap, can_swap) {
     A.insert(_arr[i]);
   A.swap(0, 1);
   for (int i = 0; i < 2; i++)
-	  _ar[i] = A.deletemin();
+    _ar[i] = A.deletemin();
   int f = 1;
   for (int i = 0; i < 2; i++)
     if (_arr[i] != _ar[i]) {
@@ -72,7 +72,7 @@ TEST(dheap, can_down) {
   A.swap(0, 1);
   A.down(0);
   for (int i = 0; i < 2; i++)
-	  _arr[i] = A.deletemin();
+    _arr[i] = A.deletemin();
   int f = 1;
   for (int i = 0; i < 2; i++)
     if (_ar[i] != _arr[i]) {

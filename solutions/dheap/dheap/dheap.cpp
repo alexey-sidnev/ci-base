@@ -1,8 +1,6 @@
 #include "dheap.h"
 #include <stdio.h>
-#include <iostream>
 
-using namespace std;
 heap::heap(int _size, int _d) {
   size = _size;
   d = _d;
