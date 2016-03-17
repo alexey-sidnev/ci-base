@@ -1,8 +1,8 @@
 #include "Dheap/Dheap.h"
 #include <gtest/gtest.h>
 
-TEST (heap, can_create_heap) {
-	ASSERT_NO_THROW (Dheap(10, 3));
+TEST(heap, can_create_heap) {
+  ASSERT_NO_THROW(Dheap(10, 3));
 }
 
 TEST(heap, cant_swap_with_wrong_index) {

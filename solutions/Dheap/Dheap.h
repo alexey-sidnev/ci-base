@@ -1,9 +1,10 @@
-#pragma once
+#ifndef SOLUTIONS_DHEAP_DHEAP_H_
+#define SOLUTIONS_DHEAP_DHEAP_H_
 #include <iostream>
 using namespace std;
 
 class Dheap {
-public:
+ public:
     int d;
     int size;
     int *keys;
@@ -16,3 +17,4 @@ public:
     void DoHeap();
     void Psort();
 };
+#endif
