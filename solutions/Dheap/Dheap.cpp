@@ -3,8 +3,6 @@
 Dheap::Dheap(int _s, int _d) {
 	size = _s;
 	keys = new int [size];
-	for(int i = 0; i < size; i++)
-		keys[i] = rand()%100;
 	d = _d;
 }
 
@@ -13,62 +11,62 @@ Dheap::~Dheap() {
 }
 
 void Dheap::Swap(int i, int j) {
+	if ((i < 0)  || (j < 0) || (i > size) || (j > size))
+		throw std::exception("wrong index");
 	int tmp = keys[i];
 	keys[i] = keys[j];
 	keys[j] = tmp;
 }
 
 void Dheap::Up(int i) {
-	int p = (i-1) / d;
-	while (p > 0 && keys[p] > keys[i]) {
-		Swap(i,p);
-		i = p;
-		p = (i-1) / d;
-	}
+    if ((i < 0)  || (i > size))
+        throw std::exception("wrong index");
+    int p = (i - 1) / d;
+    while ((i != 0) && (keys[p] > keys[i])) {
+        Swap(i,p);
+        i = p;
+        p = (i-1) / d;
+    }
 }
 
 void Dheap::Down(int i) {
-	int c = MinChild(i);
-	while(c != -1 && keys[c] < keys[i]) {
-		Swap(c,i);
-		i = c;
-		c = MinChild(i);
-	}
+    if ((i < 0)  || (i > size))
+        throw std::exception("wrong index");
+    int c = MinChild(i);
+    while((c != -1) && (keys[c] < keys[i])) {
+        Swap(c,i);
+        i = c;
+        c = MinChild(i);
+    }
 }
 
 int Dheap::MinChild(int i) {
-	int f = i * d + 1;
-	if (f > size - 1)
-		return -1;
-	int l = min(i * d + d, size - 1);
-	int minc = f;
-	for(int k = f; k <= l; k++)
-		if (keys[minc] > keys[k])
-			minc = k;
-	return minc;
+    if ((i < 0)  || (i > size))
+        throw std::exception("wrong index");
+    int f = i * d + 1;
+    if (f >= size)
+        return -1;
+    int l = min(i * d + d, size - 1);
+    int minc = f;
+    for(int k = f + 1; k <= l; k++)
+        if (keys[minc] > keys[k])
+            minc = k;
+    return minc;
 }
 
 void Dheap::DoHeap() {
-	for (int i = 0; i < size; i++)
-    Up(i);
-}
-
-void Dheap::Add(int n) {
-	keys[size] = n;
-	Up(size);
-	size++;
+	int s = size;
+	for (int i = s - 1; i >= 0; i--)
+    Down(i);
 }
 
 void Dheap::Psort() {
-	DoHeap();
-	int n = size;
-	while (size > 0) {
-		Swap(0, size-1);
-		size--;
-		Down(0);
-	}
-	size = n;
+    DoHeap();
+    int s = size;
+    while (size > 0) {
+        Swap(0, size-1);
+        size--;
+        Down(0);
+    }
+    size = s;
 }
-
-
-
