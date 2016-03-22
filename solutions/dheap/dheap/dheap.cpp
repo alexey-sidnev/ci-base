@@ -55,16 +55,16 @@ void heap::hilling() {
     up(i);
 }
 
-void heap::insert(int key) {
-  arr[n] = key;
-  up(n);
-  n++;
-}
-
 int heap::deletemin() {
   int min = arr[0];
   swap(n - 1, 0);
   n = n - 1;
   hilling();
   return min;
+}
+
+void heap::insert(int key) {
+  arr[n] = key;
+  up(n);
+  n++;
 }
