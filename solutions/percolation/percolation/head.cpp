@@ -30,13 +30,14 @@ void Sets::merge(int n, int p) {
   if (n < 0 || n > size || p < 0 || p > size)
     throw "wrong index";
   if (pr[n] == -1 || pr[p] == -1)
-	  throw "wrong param";
+    throw "wrong param";
   if (n != p) {
     int a = search(n);
     int b = search(p);
-    if (a != b)
+    if (a != b) {
       if (rank[a] < rank[b])
         pr[a] = b;
+    }
     else {
       pr[b] = a;
       if (rank[a] == rank[b])
