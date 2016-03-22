@@ -1,15 +1,15 @@
-#ifndef PERCOLATION_PERCOLATION_HEAD_H
-#define PERCOLATION_PERCOLATION_HEAD_H
+#ifndef SOLUTIONS_PERCOLATION_PERCOLATION_HEAD_H_
+#define SOLUTIONS_PERCOLATION_PERCOLATION_HEAD_H_
 
 #pragma once
 
 class Sets {
  public:
-  int size; 
+  int size;
   int *pr;
   int *rank;
 
-  Sets(int _size);
+  explicit Sets(int _size);
   ~Sets();
   void creat(int val);
   void merge(int n, int p);
@@ -17,4 +17,4 @@ class Sets {
   void clear();
 };
 
-#endif  // PERCOLATION_PERCOLATION_HEAD_H
+#endif  // SOLUTIONS_PERCOLATION_PERCOLATION_HEAD_H_

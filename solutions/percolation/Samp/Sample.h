@@ -2,21 +2,22 @@
 #include "head.h"
 #include <ctime>
 
-#ifndef PERCOLATION_SAMP_SAMPLE_H
-#define PERCOLATION_SAMP_SAMPLE_H
+#ifndef SOLUTIONS_PERCOLATION_SAMP_SAMPLE_H_
+#define SOLUTIONS_PERCOLATION_SAMP_SAMPLE_H_
 
-void countn(Sets *a, int &count, int n, int m) {
+void countn(Sets *a, int *count, int n, int m) {
   bool f = false;
   int x;
   int y;
+  int it = *count;
   srand(time(NULL));
   int coord;
-  while (f == false && count < n*m) {
+  while (f == false && it < n*m) {
     do {
       x = rand() % n;
       y = rand() % m;
     } while ((*a).pr[x + (y + 1)*n] != -1);
-  count++;
+  it++;
   coord = x + (y + 1)*n;
   (*a).creat(coord);
   if (x != 0)
@@ -31,6 +32,7 @@ void countn(Sets *a, int &count, int n, int m) {
     (*a).merge(coord, coord + n);
   f = ((*a).search(0) == (*a).search((*a).size - 1));
   }
+  *count = it;
 }
 
 void preparate(Sets *a, int n, int m) {
@@ -45,4 +47,4 @@ void preparate(Sets *a, int n, int m) {
   }
 }
 
-#endif  // PERCOLATION_SAMP_SAMPLE_H
+#endif  // SOLUTIONS_PERCOLATION_SAMP_SAMPLE_H_

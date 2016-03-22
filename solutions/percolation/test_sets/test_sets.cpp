@@ -15,8 +15,8 @@ TEST(Sets, can_add_node_in_set) {
 }
 
 TEST(Sets, can_not_add_element_with_too_large_index_in_set) {
-	Sets A(3);
-	ASSERT_ANY_THROW(A.creat(13));
+  Sets A(3);
+  ASSERT_ANY_THROW(A.creat(13));
 }
 
 TEST(Sets, can_not_creat_node_which_creat_early) {
@@ -29,7 +29,7 @@ TEST(Sets, can_merge_sets) {
   Sets A(4);
   A.creat(2);
   A.creat(3);
-  ASSERT_NO_THROW(A.merge(2,3));
+  ASSERT_NO_THROW(A.merge(2, 3));
 }
 
 TEST(Sets, can_not_merge_sets_which_one_of_two_sets_is_empty) {

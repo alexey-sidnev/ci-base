@@ -3,7 +3,7 @@
 #include <stdio.h>
 
 void main() {
-  int col = 100;
+  int col = 1500;
   int n = 3;
   int m = 3;
   int it = n*m + 2 * n;
@@ -13,7 +13,7 @@ void main() {
   for (int i = 0; i < col; i++) {
     preparate(&A, n, m);
     count = 0;
-    countn(&A, count, n, m);
+    countn(&A, &count, n, m);
     result += count*1.0 / n / m;
   }
   printf("percentage = %f\n", result / col);
