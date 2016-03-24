@@ -6,7 +6,7 @@ void dirround(Node *n) {
     while (!st.empty()) {
         Node *tmp = st.top();
         st.pop();
-        std::cout<<tmp->key<<" ";
+        std::cout << tmp->key<<" ";
         if (tmp->right != 0)
             st.push(tmp->right);
         if (tmp->left != 0)
