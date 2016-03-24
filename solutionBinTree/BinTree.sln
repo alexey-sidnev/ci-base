@@ -1,0 +1,36 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 11.00
+# Visual Studio 2010
+Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "BinTree", "BinTree\BinTree.vcxproj", "{073AAD02-1D29-4C15-8836-92B8284DBA9A}"
+EndProject
+Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "BinTree_test", "BinTree_test\BinTree_test.vcxproj", "{156712F8-7BA8-4731-990E-6BFBEA831226}"
+	ProjectSection(ProjectDependencies) = postProject
+		{073AAD02-1D29-4C15-8836-92B8284DBA9A} = {073AAD02-1D29-4C15-8836-92B8284DBA9A}
+		{ACB105F0-750D-43F4-B497-A398E67E369B} = {ACB105F0-750D-43F4-B497-A398E67E369B}
+	EndProjectSection
+EndProject
+Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "gtest", "gtest\gtest.vcxproj", "{ACB105F0-750D-43F4-B497-A398E67E369B}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Win32 = Debug|Win32
+		Release|Win32 = Release|Win32
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{073AAD02-1D29-4C15-8836-92B8284DBA9A}.Debug|Win32.ActiveCfg = Debug|Win32
+		{073AAD02-1D29-4C15-8836-92B8284DBA9A}.Debug|Win32.Build.0 = Debug|Win32
+		{073AAD02-1D29-4C15-8836-92B8284DBA9A}.Release|Win32.ActiveCfg = Release|Win32
+		{073AAD02-1D29-4C15-8836-92B8284DBA9A}.Release|Win32.Build.0 = Release|Win32
+		{156712F8-7BA8-4731-990E-6BFBEA831226}.Debug|Win32.ActiveCfg = Debug|Win32
+		{156712F8-7BA8-4731-990E-6BFBEA831226}.Debug|Win32.Build.0 = Debug|Win32
+		{156712F8-7BA8-4731-990E-6BFBEA831226}.Release|Win32.ActiveCfg = Release|Win32
+		{156712F8-7BA8-4731-990E-6BFBEA831226}.Release|Win32.Build.0 = Release|Win32
+		{ACB105F0-750D-43F4-B497-A398E67E369B}.Debug|Win32.ActiveCfg = Debug|Win32
+		{ACB105F0-750D-43F4-B497-A398E67E369B}.Debug|Win32.Build.0 = Debug|Win32
+		{ACB105F0-750D-43F4-B497-A398E67E369B}.Release|Win32.ActiveCfg = Release|Win32
+		{ACB105F0-750D-43F4-B497-A398E67E369B}.Release|Win32.Build.0 = Release|Win32
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+EndGlobal
