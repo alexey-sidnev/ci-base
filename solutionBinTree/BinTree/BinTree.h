@@ -14,4 +14,4 @@ void dirround(Node *n);
 void revround(Node *n);
 void simround(Node *n);
 
-#endif // SOLUTIONBINTREE_BINTREE_BINTREE_H_
+#endif  // SOLUTIONBINTREE_BINTREE_BINTREE_H_
