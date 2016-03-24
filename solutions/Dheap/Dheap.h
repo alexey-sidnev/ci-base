@@ -12,7 +12,7 @@ class Dheap {
     void Swap(int i, int j);
     void Up(int i);
     void Down(int i);
-	int min(int n, int m);
+    int min(int n, int m);
     int MinChild(int i);
     void DoHeap();
     void Psort();

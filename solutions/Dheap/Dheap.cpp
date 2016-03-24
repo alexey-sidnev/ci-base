@@ -41,7 +41,7 @@ void Dheap::Down(int i) {
 }
 
 int Dheap::min(int n, int m) {
-	return ((n < m)? n : m);
+    return ((n < m)? n : m);
 }
 
 int Dheap::MinChild(int i) {
