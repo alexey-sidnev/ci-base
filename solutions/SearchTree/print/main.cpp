@@ -1,7 +1,7 @@
 #include "SearchTree.h"
 #include "stdio.h"
 
-void main(){
+void main() {
   node root, a, b, c, d, e, f, g, h;
   int q[9];
   init(&root, 6);

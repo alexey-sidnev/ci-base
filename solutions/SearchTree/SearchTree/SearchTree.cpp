@@ -67,7 +67,7 @@ void Inorder(node *root, int *q) {
 
 void Postorder(node *root, int *q) {
   if (root == NULL) {
-   return;
+    return;
   }
   node* lnp = 0;
   node* tmp = 0;
@@ -84,15 +84,15 @@ void Postorder(node *root, int *q) {
       else {
         st.pop();
         std::cout << tmp->key << " ";
-		q[i] = tmp->key;
-		i++;
+        q[i] = tmp->key;
+        i++;
         lnp = tmp;
       }
     }
   }
 }
 
-void init(node *n, int k){
+void init(node *n, int k) {
   n->key = k;
   n->left = 0;
   n->parent = 0;
