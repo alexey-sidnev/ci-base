@@ -33,11 +33,15 @@ void Dheap::Down(int i) {
     if ((i < 0)  || (i > size))
         throw std::exception("wrong index");
     int c = MinChild(i);
-    while( (c != -1) && (keys[c] < keys[i])) {
+    while ((c != -1) && (keys[c] < keys[i])) {
         Swap(c, i);
         i = c;
         c = MinChild(i);
     }
+}
+
+int Dheap::min(int n, int m) {
+	return ((n < m)? n : m);
 }
 
 int Dheap::MinChild(int i) {
