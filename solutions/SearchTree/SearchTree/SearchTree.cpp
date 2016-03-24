@@ -79,9 +79,9 @@ void Postorder(node *root, int *q) {
       root = root->left;
     } else {
       tmp = st.top();
-      if (tmp->right != 0 && lnp != tmp->right)
+      if (tmp->right != 0 && lnp != tmp->right) {
         root = tmp->right;
-      else {
+      } else {
         st.pop();
         std::cout << tmp->key << " ";
         q[i] = tmp->key;
