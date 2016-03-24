@@ -1,0 +1,40 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio Express 2013 for Windows Desktop
+VisualStudioVersion = 12.0.40629.0
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "print", "print\print.vcxproj", "{56369E1C-C488-4B77-AA5A-69BEA4FC959B}"
+EndProject
+Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "SearchTree", "SearchTree\SearchTree.vcxproj", "{8A3BB9C1-4FEA-468C-B51F-B174E49EA117}"
+EndProject
+Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "gtest", "gtest\gtest.vcxproj", "{B9F1078C-4F9A-43AA-9FF6-A5210CC82EA6}"
+EndProject
+Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "test_searchtree", "test_searchtree\test_searchtree.vcxproj", "{451ED43F-7509-4724-B1F8-C02EB3D2C9AB}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Win32 = Debug|Win32
+		Release|Win32 = Release|Win32
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{56369E1C-C488-4B77-AA5A-69BEA4FC959B}.Debug|Win32.ActiveCfg = Debug|Win32
+		{56369E1C-C488-4B77-AA5A-69BEA4FC959B}.Debug|Win32.Build.0 = Debug|Win32
+		{56369E1C-C488-4B77-AA5A-69BEA4FC959B}.Release|Win32.ActiveCfg = Release|Win32
+		{56369E1C-C488-4B77-AA5A-69BEA4FC959B}.Release|Win32.Build.0 = Release|Win32
+		{8A3BB9C1-4FEA-468C-B51F-B174E49EA117}.Debug|Win32.ActiveCfg = Debug|Win32
+		{8A3BB9C1-4FEA-468C-B51F-B174E49EA117}.Debug|Win32.Build.0 = Debug|Win32
+		{8A3BB9C1-4FEA-468C-B51F-B174E49EA117}.Release|Win32.ActiveCfg = Release|Win32
+		{8A3BB9C1-4FEA-468C-B51F-B174E49EA117}.Release|Win32.Build.0 = Release|Win32
+		{B9F1078C-4F9A-43AA-9FF6-A5210CC82EA6}.Debug|Win32.ActiveCfg = Debug|Win32
+		{B9F1078C-4F9A-43AA-9FF6-A5210CC82EA6}.Debug|Win32.Build.0 = Debug|Win32
+		{B9F1078C-4F9A-43AA-9FF6-A5210CC82EA6}.Release|Win32.ActiveCfg = Release|Win32
+		{B9F1078C-4F9A-43AA-9FF6-A5210CC82EA6}.Release|Win32.Build.0 = Release|Win32
+		{451ED43F-7509-4724-B1F8-C02EB3D2C9AB}.Debug|Win32.ActiveCfg = Debug|Win32
+		{451ED43F-7509-4724-B1F8-C02EB3D2C9AB}.Debug|Win32.Build.0 = Debug|Win32
+		{451ED43F-7509-4724-B1F8-C02EB3D2C9AB}.Release|Win32.ActiveCfg = Release|Win32
+		{451ED43F-7509-4724-B1F8-C02EB3D2C9AB}.Release|Win32.Build.0 = Release|Win32
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+EndGlobal
