@@ -1,4 +1,4 @@
-#include "BinTree.h"
+#include <BinTree/BinTree.h>
 
 void dirround(Node *n) {
     std::stack<Node*> st;
