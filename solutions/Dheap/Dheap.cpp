@@ -1,4 +1,4 @@
-#include "Dheap.h"
+#include <Dheap/Dheap.h>
 
 Dheap::Dheap(int _s, int _d) {
     size = _s;
