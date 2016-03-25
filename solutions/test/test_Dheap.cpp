@@ -1,4 +1,4 @@
-#include "Dheap/Dheap.h"
+#include <Dheap/Dheap.h>
 #include <gtest/gtest.h>
 
 TEST(heap, can_create_heap) {
