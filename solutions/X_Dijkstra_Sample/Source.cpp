@@ -36,7 +36,7 @@ void printG(Graph* t) {
   printf("\n");
 }
 
-Graph* readG(string file_name) {
+Graph* readG(std::string file_name) {
   FILE* f = fopen(file_name.c_str(), "r");
   Graph* t = new Graph;
   fscanf(f, "%i%i", &(t -> n_vertex), &(t -> m_edges));
@@ -73,12 +73,14 @@ Answ Dijkstra(Graph* g, int start) {
     int me = len_way.min_pop();
     for (int j = 0; j < g -> m_edges; j++) {
       e = g -> arr[j];
-      if (e.a == me)
+      if (e.a == me) {
         next = e.b;
-      else if (e.b == me)
-             next = e.a;
-           else
-             continue;
+      } else {
+        if (e.b == me)
+          next = e.a;
+        else
+          continue;
+      }
       if (len_way.get_rank(next) > len_way.get_rank(me) + e.size) {
         len_way.chg_rank(len_way.get_rank(me) + e.size, next);
         count_way[next] = count_way[me] + 1;
@@ -103,7 +105,7 @@ int main() {
   Answ right;
   char name_file[4];
   for (int number = 1; number < 20; number++) {
-    snprintf(name_file, 4, "%03i", number);
+    _snprintf(name_file, sizeof(name_file), "%03i", number);
     printf("test %s\n", name_file);
     std::string path = "..\\roads_check\\";
     path = path + name_file;
