@@ -7,6 +7,7 @@ PHeap::PHeap() {}
 PHeap::PHeap(int size_, int d_) {
   m = new int[size_];
   index = new int[size_];
+  re_index = new int[size_];
   max_size = size_;
   size = 0;
   d = d_;
@@ -18,6 +19,8 @@ void PHeap::transp(int i, int j) {
   t = index[i];
   index[i] = index[j];
   index[j] = t;
+  re_index[index[i]] = i;
+  re_index[index[j]] = j;
 }
 void PHeap::vdown(int i) {
   if (i*d+1 < size) {
@@ -57,10 +60,30 @@ int PHeap::min_pop() {
   return(index[size]);
 }
 
+int PHeap::min_top() {
+  return(index[0]);
+}
+
+int PHeap::get_rank(int index_) {
+  return m[re_index[index_]];
+}
+
+void PHeap::chg_rank(int new_rank, int index_) {
+  int u = re_index[index_];
+  if (m[u] > new_rank) {
+    m[u] = new_rank;
+    vup(u);
+  } else {
+    m[u] = new_rank;
+    vdown(u);
+  }
+}
+
 void PHeap::push(int rank, int index_) {
   if (size < max_size) {
     m[size] = rank;
-    index[size] = index_;
+    index[size]= index_;
+    re_index[index_] = size;
     size++;
     vup(size - 1);
   } else {
