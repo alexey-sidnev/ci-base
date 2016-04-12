@@ -4,8 +4,6 @@
 #include <stdio.h>
 #include <string>
 
-using namespace std;
-
 struct Edge {
   int a;
   int b;
@@ -43,10 +41,12 @@ Graph* readG(string file_name) {
   Graph* t = new Graph;
   fscanf(f, "%i%i", &(t -> n_vertex), &(t -> m_edges));
   t -> arr = new Edge[t -> m_edges];
+  int a, b, size_e;
   for (int i = 0; i < t -> m_edges; i++) {
-    fscanf(f, "%i%i%i", &(t -> arr[i].a), &(t -> arr[i].b), &(t -> arr[i].size));
-    t -> arr[i].a--;
-    t -> arr[i].b--;
+    fscanf(f, "%i%i%i", &a, &b, &size_e);
+    t -> arr[i].a = a - 1;
+    t -> arr[i].b = b - 1;
+    t -> arr[i].size = size_e;
   }
   return t;
 }
@@ -83,12 +83,14 @@ Answ Dijkstra(Graph* g, int start) {
         len_way.chg_rank(len_way.get_rank(me) + e.size, next);
         count_way[next] = count_way[me] + 1;
         way[next] = me;
-      } else if ((len_way.get_rank(next) == len_way.get_rank(me) + e.size)
-                  && (count_way[next] < count_way[me] + 1)) {
-               len_way.chg_rank(len_way.get_rank(me) + e.size, next);
-               count_way[next] = count_way[me] + 1;
-               way[next] = me;
-             }
+      } else {
+          if ((len_way.get_rank(next) == len_way.get_rank(me) + e.size)
+                    && (count_way[next] < count_way[me] + 1)) {
+            len_way.chg_rank(len_way.get_rank(me) + e.size, next);
+            count_way[next] = count_way[me] + 1;
+            way[next] = me;
+          }
+      }
     }
   }
   Answ t;
@@ -97,13 +99,11 @@ Answ Dijkstra(Graph* g, int start) {
   return t;
 }
 
-
-
 int main() {
   Answ right;
   char name_file[4];
-  for (int number = 1; number < 20; number++) { 
-    sprintf(name_file, "%03i",number);
+  for (int number = 1; number < 20; number++) {
+    snprintf(name_file, 4, "%03i", number);
     printf("test %s\n", name_file);
     std::string path = "..\\roads_check\\";
     path = path + name_file;
@@ -118,6 +118,5 @@ int main() {
       printf("\tRestricted Answer is %i %i\n", right.len, right.count);
     printf("\tMy Answer is %i %i\n", mine.len, mine.count);
   }
-  
   return 0;
 }
