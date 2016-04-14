@@ -46,7 +46,7 @@ TEST(dheap, can_sort) {
 }
 
 TEST(dheap, can_swap) {
- int _arr[2] = { 549, 8 };
+  int _arr[2] = { 549, 8 };
   int _ar[2];
   heap A(2, 3);
   for (int i = 0; i < 2; i++)
