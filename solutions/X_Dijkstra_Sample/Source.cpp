@@ -18,10 +18,10 @@ Edge crE(int a_, int b_, int size_) {
   return c;
 }
 
-void setE(Edge& c, int a_, int b_, int size_) {
-  c.a = a_;
-  c.b = b_;
-  c.size = size_;
+void setE(Edge* c, int a_, int b_, int size_) {
+  c -> a = a_;
+  c -> b = b_;
+  c -> size = size_;
 }
 
 struct Graph {
@@ -130,8 +130,8 @@ int main(int argc, char *argv[]) {
   } else {
     Graph test = {3, 2, 0};
     test.arr = new Edge[2];
-    setE(test.arr[0], 0, 1, 2);
-    setE(test.arr[1], 0, 2, 4);
+    setE(test.arr + 0, 0, 1, 2);
+    setE(test.arr + 1, 0, 2, 4);
     Answ mine = Dijkstra(&test, 0);
     printf("\tMy Answer is %i %i\n", mine.len, mine.count);
   }
