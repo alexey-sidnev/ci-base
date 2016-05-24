@@ -18,6 +18,12 @@ Edge crE(int a_, int b_, int size_) {
   return c;
 }
 
+void setE(Edge& c, int a_, int b_, int size_) {
+  c.a = a_;
+  c.b = b_;
+  c.size = size_;
+}
+
 struct Graph {
   int n_vertex;
   int m_edges;
@@ -101,23 +107,32 @@ Answ Dijkstra(Graph* g, int start) {
   return t;
 }
 
-int main() {
-  Answ right;
-  char name_file[4];
-  for (int number = 1; number < 20; number++) {
-    _snprintf(name_file, sizeof(name_file), "%03i", number);
-    printf("test %s\n", name_file);
-    std::string path = "..\\roads_check\\";
-    path = path + name_file;
-    if (number < 16) {
-      FILE* f = fopen((path + ".a").c_str(), "r");
-      fscanf(f, "%i%i", &(right.len), &(right.count));
-      fclose(f);
+int main(int argc, char *argv[]) {
+  if (argc > 1) {
+    Answ right;
+    char name_file[4];
+    for (int number = 1; number < 20; number++) {
+      _snprintf(name_file, sizeof(name_file), "%03i", number);
+      printf("test %s\n", name_file);
+      std::string path = "..\\roads_check\\";
+      path = path + name_file;
+      if (number < 16) {
+        FILE* f = fopen((path + ".a").c_str(), "r");
+        fscanf(f, "%i%i", &(right.len), &(right.count));
+        fclose(f);
+      }
+      Graph* g = readG(path);
+      Answ mine = Dijkstra(g, 0);
+      if (number < 16)
+        printf("\tRestricted Answer is %i %i\n", right.len, right.count);
+      printf("\tMy Answer is %i %i\n", mine.len, mine.count);
     }
-    Graph* g = readG(path);
-    Answ mine = Dijkstra(g, 0);
-    if (number < 16)
-      printf("\tRestricted Answer is %i %i\n", right.len, right.count);
+  } else {
+    Graph test = {3, 2, 0};
+    test.arr = new Edge[2];
+    setE(test.arr[0], 0, 1, 2);
+    setE(test.arr[1], 0, 2, 4);
+    Answ mine = Dijkstra(&test, 0);
     printf("\tMy Answer is %i %i\n", mine.len, mine.count);
   }
   return 0;
