@@ -40,7 +40,7 @@ Node* balance(Node* p) {
       p->right = rotateright(p->right);
     return rotateleft(p);
   }
-  if( bfactor(p) == -2) {
+  if (bfactor(p) == -2) {
     if (bfactor(p->left) > 0)
       p->left = rotateleft(p->left);
     return rotateright(p);
@@ -65,7 +65,7 @@ Node* findmin(Node* p) {
 Node* removemin(Node* p) {
   if (p->left == 0) {
     Node* t = p->right;
-   // delete p;
+    // delete p;
     return t;
   }
   p->left = removemin(p->left);
@@ -93,7 +93,7 @@ Node* remove(Node* p, int k, int index = -1) {
     p->left = remove(p->left, k, index);
   } else {
     if (k > p->key) {
-      p->right = remove(p->right, k, index);  
+      p->right = remove(p->right, k, index);
     } else {
       if (index != -1 && p->index == index) {
         Node* q = p->left;
@@ -108,12 +108,6 @@ Node* remove(Node* p, int k, int index = -1) {
       } else {
         p->right = remove(p->right, k, index);
         p->left = remove(p->left, k, index);
-        //Node* t = remove(p->right, k, index);
-        //if (t != 0) {
-        //  p->right = t;
-        //} else {
-        //  p->left = remove(p->left, k, index);
-        //}
       }
     }
   }
@@ -142,7 +136,7 @@ int AVL_Tree::del(int key, int index) {
 int AVL_Tree::min_pop() {
   Node* t = findmin(root);
   int u = t->index;
- // delete t;
+  // delete t;
   root = removemin(root);
   return u;
 }

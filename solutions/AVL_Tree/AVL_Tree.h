@@ -9,7 +9,7 @@ struct Node {
   unsigned char height;
   Node* left;
   Node* right;
-  Node(int k, int i = 0) {
+  explicit Node(int k, int i = 0) {
     key = k;
     index = i;
     left = right = 0;
