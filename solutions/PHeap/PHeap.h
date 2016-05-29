@@ -1,9 +1,9 @@
 #ifndef SOLUTIONS_PHEAP_PHEAP_H_
 #define SOLUTIONS_PHEAP_PHEAP_H_
 
+#include "P_Queue.h"
 
-
-class PHeap {
+class PHeap : public P_Queue {
  public:
   int* m;
   int* index;
@@ -18,9 +18,9 @@ class PHeap {
   void vup(int i);
   int min_pop();
   int min_top();
-  void chg_rank(int new_rank, int index_);
-  int get_rank(int index_);
-  void push(int rank, int index_);
+  void changePriority(int new_rank, int index_);
+  int getRank(int index_);
+  void add(int rank, int index_);
   void print();
   ~PHeap();
 };

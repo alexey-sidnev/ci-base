@@ -55,6 +55,7 @@ void PHeap::vup(int i) {
 
 int PHeap::min_pop() {
   transp(0, size - 1);
+  m[size - 1] = -1;
   size--;
   vdown(0);
   return(index[size]);
@@ -64,11 +65,11 @@ int PHeap::min_top() {
   return(index[0]);
 }
 
-int PHeap::get_rank(int index_) {
+int PHeap::getRank(int index_) {
   return m[re_index[index_]];
 }
 
-void PHeap::chg_rank(int new_rank, int index_) {
+void PHeap::changePriority(int new_rank, int index_) {
   int u = re_index[index_];
   if (m[u] > new_rank) {
     m[u] = new_rank;
@@ -79,7 +80,7 @@ void PHeap::chg_rank(int new_rank, int index_) {
   }
 }
 
-void PHeap::push(int rank, int index_) {
+void PHeap::add(int rank, int index_) {
   if (size < max_size) {
     m[size] = rank;
     index[size]= index_;

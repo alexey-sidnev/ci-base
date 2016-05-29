@@ -1,4 +1,5 @@
 #include "PHeap.h"
+#include "AVL_Tree.h"
 #include <stdlib.h>
 #include <ctime>
 #include <stdio.h>
@@ -62,22 +63,36 @@ struct Answ {
   int count;
 };
 
-Answ Dijkstra(Graph* g, int start) {
-  int* way = new int[g -> n_vertex];
-  PHeap len_way(g -> n_vertex);
-  int* count_way = new int[g -> n_vertex];
-  for (int i = 0; i < g -> n_vertex; i++) {
+Answ Dijkstra(Graph* g, int start, int type = 0) {
+  int* way = new int[g->n_vertex];
+  int* rank_out = new int[g->n_vertex];
+  int* count_way = new int[g->n_vertex];
+
+  Edge e;
+  int next;
+
+  P_Queue* len_way;
+  if (type == 0) {
+    len_way = new AVL_Tree();
+  } else {
+    len_way = new PHeap(g->n_vertex);
+  }
+
+  for (int i = 0; i < g->n_vertex; i++) {
     way[i] = start;
-    len_way.push(INT_MAX, i);
+    len_way->add(INT_MAX, i);
     count_way[i] = 0;
   }
   way[start] = start;
-  len_way.chg_rank(0, start);
-  Edge e;
-  int next;
-  for (int i = 0; i < g -> n_vertex; i++) {
-    int me = len_way.min_pop();
-    for (int j = 0; j < g -> m_edges; j++) {
+  len_way->changePriority(0, start);
+
+  for (int i = 0; i < g->n_vertex; i++) {
+    int me = len_way->min_top();
+    int me_rank = len_way->getRank(me);
+    rank_out[me] = me_rank;
+    len_way->min_pop();
+
+    for (int j = 0; j < g->m_edges; j++) {
       e = g -> arr[j];
       if (e.a == me) {
         next = e.b;
@@ -87,14 +102,14 @@ Answ Dijkstra(Graph* g, int start) {
         else
           continue;
       }
-      if (len_way.get_rank(next) > len_way.get_rank(me) + e.size) {
-        len_way.chg_rank(len_way.get_rank(me) + e.size, next);
+      if (len_way->getRank(next) > me_rank + e.size) {
+        len_way->changePriority(me_rank + e.size, next);
         count_way[next] = count_way[me] + 1;
         way[next] = me;
       } else {
-          if ((len_way.get_rank(next) == len_way.get_rank(me) + e.size)
+          if ((len_way->getRank(next) == me_rank + e.size)
                     && (count_way[next] < count_way[me] + 1)) {
-            len_way.chg_rank(len_way.get_rank(me) + e.size, next);
+            len_way->changePriority(me_rank + e.size, next);
             count_way[next] = count_way[me] + 1;
             way[next] = me;
           }
@@ -102,8 +117,8 @@ Answ Dijkstra(Graph* g, int start) {
     }
   }
   Answ t;
-  t.len = len_way.get_rank(g -> n_vertex - 1);
-  t.count = count_way[g -> n_vertex - 1];
+  t.len = rank_out[g->n_vertex - 1];
+  t.count = count_way[g->n_vertex - 1];
   return t;
 }
 
@@ -111,7 +126,7 @@ int main(int argc, char *argv[]) {
   if (argc > 1) {
     Answ right;
     char name_file[4];
-    for (int number = 1; number < 20; number++) {
+    for (int number = 13; number < 14; number++) {
       _snprintf(name_file, sizeof(name_file), "%03i", number);
       printf("test %s\n", name_file);
       std::string path = "..\\roads_check\\";
@@ -132,8 +147,10 @@ int main(int argc, char *argv[]) {
     test.arr = new Edge[2];
     setE(test.arr + 0, 0, 1, 2);
     setE(test.arr + 1, 0, 2, 4);
-    Answ mine = Dijkstra(&test, 0);
-    printf("\tMy Answer is %i %i\n", mine.len, mine.count);
+    Answ mine1 = Dijkstra(&test, 0, 0);
+    Answ mine2 = Dijkstra(&test, 0, 1);
+    printf("\tAVL | My Answer is %i %i\n", mine1.len, mine1.count);
+    printf("\tHeap | My Answer is %i %i\n", mine2.len, mine2.count);
   }
   return 0;
 }
