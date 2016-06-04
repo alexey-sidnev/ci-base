@@ -2,8 +2,8 @@
 #include "percolation.h"
 #include <ctime>
 
-#ifndef SOLUTIONS_PERCOLATION_SAMP_SAMPLE_H_
-#define SOLUTIONS_PERCOLATION_SAMP_SAMPLE_H_
+#ifndef SOLUTIONS_PERCOLATION_SAMPLE_SAMPLE_H_
+#define SOLUTIONS_PERCOLATION_SAMPLE_SAMPLE_H_
 
 void countn(Sets *A, double *count, int n, int m) {
   bool f = false;
@@ -45,4 +45,4 @@ void preparate(Sets *A, int n, int m) {
   }
 }
 
-#endif  // SOLUTIONS_PERCOLATION_SAMP_SAMPLE_H_
+#endif  // SOLUTIONS_PERCOLATION_SAMPLE_SAMPLE_H_
