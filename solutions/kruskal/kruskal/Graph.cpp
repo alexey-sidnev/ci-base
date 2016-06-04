@@ -24,7 +24,6 @@ void gr(int nodes, int edgees, edge* ed, Graph *g) {
 void Print(Graph *g) {
   for (int i = 0; i < g->edgee; i++)
     std::cout << g->edges[i].a << " - " << g->edges[i].b << "; \n";
-
 }
 
 void Kruskal(Graph *g, Graph *ostov) {
