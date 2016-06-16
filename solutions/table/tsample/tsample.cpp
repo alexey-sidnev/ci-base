@@ -25,18 +25,18 @@ void main(int argc, char *argv[]) {
         }
         if (fun[0] == 'D') {
           in >> key;
-		  ikey = new char[strlen(key) + 1];
-		  strcpy_s(ikey, strlen(key) + 1, key);
-		  ht.del(ikey);
-		  delete ikey;
+          ikey = new char[strlen(key) + 1];
+          strcpy_s(ikey, strlen(key) + 1, key);
+          ht.del(ikey);
+          delete ikey;
         }
       }
       for (int j = 0; j < size; j++) {
         if (ht.state(j) == "BUSY")
-			out << ht.state(j) << " " << ht.Getkey(j)
-			<< " " << ht.Getdata(j) << "\n";
+          out << ht.state(j) << " " << ht.Getkey(j)
+          << " " << ht.Getdata(j) << "\n";
         if (ht.state(j) == "FREE")
-			out << ht.state(j) << "\n";
+          out << ht.state(j) << "\n";
       }
       return;
     } else {
@@ -47,20 +47,20 @@ void main(int argc, char *argv[]) {
       while (!in.eof()) {
         in >> fun;
         if (fun[0] == 'A') {
-			in >> keyi >> data;
-			ht.ins(keyi, data);
+          in >> keyi >> data;
+          ht.ins(keyi, data);
         }
         if (fun[0] == 'D') {
-			in >> keyi;
-			ht.del(keyi);
+          in >> keyi;
+          ht.del(keyi);
         }
       }
       for (int j = 0; j < size; j++) {
         if (ht.state(j) == "BUSY")
-			out << ht.state(j) << " " << ht.Getkey(j)
-			<< " " << ht.Getdata(j) << "\n";
+          out << ht.state(j) << " " << ht.Getkey(j)
+          << " " << ht.Getdata(j) << "\n";
         if (ht.state(j) == "FREE")
-			out << ht.state(j) << "\n";
+          out << ht.state(j) << "\n";
       }
       return;
     }
