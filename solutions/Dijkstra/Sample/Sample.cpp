@@ -58,7 +58,8 @@ void main(int argc, char *argv[]) {
         dist1[i->first] = dist1[j] + 1;
         que.update(i->first, dist[j] + i->second);
       }
-      if (((dist[j] + i->second) == dist[i->first]) && ((dist1[j] + 1) > dist1[i->first])) {
+      if (((dist[j] + i->second) == dist[i->first])
+        && ((dist1[j] + 1) > dist1[i->first])) {
         up[i->first] = j;
         dist1[i->first] = dist1[j] + 1;
       }
@@ -92,7 +93,8 @@ void main(int argc, char *argv[]) {
         tree = avltree_del(tree, i->first, tmp1);
         tree = avltree_add(tree, dist[j] + i->second, i->first);
       }
-      if (((dist[j] + i->second) == dist[i->first]) && ((dist1[j] + 1) > dist1[i->first])) {
+      if (((dist[j] + i->second) == dist[i->first])
+        && ((dist1[j] + 1) > dist1[i->first])) {
         up[i->first] = j;
         dist1[i->first] = dist1[j] + 1;
       }
